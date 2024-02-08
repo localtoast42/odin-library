@@ -18,6 +18,7 @@ body {
     padding: 24px;
     display: flex;
     flex-direction: column;
+    gap: 60px;
 }
 
 .new-book {
@@ -30,6 +31,31 @@ body {
     font-size: 20px;
     border: none;
     border-radius: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    max-width: 300px;
+}
+
+label {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+input {
+    margin-bottom: 12px;
+    width: 250px;
+    height: 24px;
+}
+
+.submit {
+    font-size: 20px;
+    align-self: center;
+    padding: 10px 20px;
 }
 
 .card-container {
@@ -48,10 +74,4 @@ body {
     border: none;
     border-radius: 10px;
     padding: 24px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 200px;
 }
