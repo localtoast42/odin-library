@@ -26,5 +26,10 @@ function displayLibrary() {
 }
 
 const container = document.querySelector('.container');
+const newBookBtn = document.querySelector('.new-book');
+
+newBookBtn.addEventListener('click', () => {
+    addBookToLibrary();
+});
 
 displayLibrary();
