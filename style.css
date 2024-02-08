@@ -5,8 +5,9 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: 250px 3fr;
-    grid-template-rows: 250px 3fr;
+    height: 100vh;
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: 150px 1fr;
 }
 
 .sidebar {
@@ -23,15 +24,19 @@ body {
 }
 
 .main-content {
-    display: grid;
-    background-color: lightslategray;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    background-color: lightslategray;
 }
 
 .card {
     height: 150px;
     width: 150px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
 }
 
 form {
