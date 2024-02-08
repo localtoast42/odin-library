@@ -1,9 +1,9 @@
 const myLibrary = [];
 
 function Book(title, author, numPages) {
-    title: title;
-    author: author;
-    numPages: numPages;
+    this.title = title;
+    this.author = author;
+    this.numPages = numPages;
 }
 
 function addBookToLibrary(title, author, numPages) {
@@ -18,11 +18,21 @@ function displayLibrary() {
         cardContainer.removeChild(card);
     });
 
-    let card = document.createElement('div');
-    card.setAttribute('class', 'card');
-
     myLibrary.forEach((book) => {
-        card.textContent = book.title;
+        const card = document.createElement('div');
+        card.setAttribute('class', 'card');
+        
+        const titleDiv = document.createElement('div');
+        const authorDiv = document.createElement('div');
+        const numPagesDiv = document.createElement('div');
+        titleDiv.textContent = book.title;
+        authorDiv.textContent = book.author;
+        numPagesDiv.textContent = book.numPages;
+
+        card.appendChild(titleDiv);
+        card.appendChild(authorDiv);
+        card.appendChild(numPagesDiv);
+
         cardContainer.appendChild(card);
     });
 }
