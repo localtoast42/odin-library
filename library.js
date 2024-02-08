@@ -46,6 +46,9 @@ const numPagesField = document.querySelector('#num-pages');
 const inputForm = document.querySelector('form');
 
 newBookBtn.addEventListener('click', () => {
+    titleField.value = '';
+    authorField.value = '';
+    numPagesField.value = '';
     inputForm.setAttribute('style', 'display: flex;');
 });
 
