@@ -22,12 +22,12 @@ function displayLibrary() {
         const card = document.createElement('div');
         card.setAttribute('class', 'card');
         
-        const titleDiv = document.createElement('div');
-        const authorDiv = document.createElement('div');
-        const numPagesDiv = document.createElement('div');
+        const titleDiv = document.createElement('h2');
+        const authorDiv = document.createElement('h3');
+        const numPagesDiv = document.createElement('p');
         titleDiv.textContent = book.title;
-        authorDiv.textContent = book.author;
-        numPagesDiv.textContent = book.numPages;
+        authorDiv.textContent = 'by ' + book.author;
+        numPagesDiv.textContent = 'Page Count: ' + book.numPages;
 
         card.appendChild(titleDiv);
         card.appendChild(authorDiv);
