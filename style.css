@@ -23,7 +23,7 @@ body {
     grid-row: 1 / 2;
 }
 
-.main-content {
+.card-container {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     display: grid;

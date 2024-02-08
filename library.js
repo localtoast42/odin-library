@@ -6,14 +6,16 @@ function Book(title, author, numPages) {
     numPages: numPages;
 }
 
-function addBookToLibrary(book) {
+function addBookToLibrary(title, author, numPages) {
+    let book = new Book(title, author, numPages);
     myLibrary.push(book);
+    displayLibrary();
 }
 
 function displayLibrary() {
     const cards = document.querySelectorAll('.card');
     cards.forEach((card) => {
-        container.removeChild(card);
+        cardContainer.removeChild(card);
     });
 
     let card = document.createElement('div');
@@ -21,15 +23,27 @@ function displayLibrary() {
 
     myLibrary.forEach((book) => {
         card.textContent = book.title;
-        container.appendChild(card);
+        cardContainer.appendChild(card);
     });
 }
 
-const container = document.querySelector('.container');
+const cardContainer = document.querySelector('.card-container');
 const newBookBtn = document.querySelector('.new-book');
+const submitBtn = document.querySelector('.submit');
+const titleField = document.querySelector('#title');
+const authorField = document.querySelector('#author');
+const numPagesField = document.querySelector('#num-pages');
 
 newBookBtn.addEventListener('click', () => {
     addBookToLibrary();
+});
+
+submitBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    let title = titleField.value;
+    let author = authorField.value;
+    let numPages = numPagesField.value;
+    addBookToLibrary(title, author, numPages);
 });
 
 displayLibrary();
