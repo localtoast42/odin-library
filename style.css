@@ -16,6 +16,20 @@ body {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-book {
+    width: 150px;
+    height: 60px;
+    align-self: center;
+    background-color: rgb(249, 32, 82);
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    border: none;
+    border-radius: 20px;
 }
 
 .card-container {
