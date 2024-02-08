@@ -43,9 +43,10 @@ const submitBtn = document.querySelector('.submit');
 const titleField = document.querySelector('#title');
 const authorField = document.querySelector('#author');
 const numPagesField = document.querySelector('#num-pages');
+const inputForm = document.querySelector('form');
 
 newBookBtn.addEventListener('click', () => {
-    addBookToLibrary();
+    inputForm.setAttribute('style', 'display: flex;');
 });
 
 submitBtn.addEventListener('click', function (e) {
@@ -54,6 +55,7 @@ submitBtn.addEventListener('click', function (e) {
     let author = authorField.value;
     let numPages = numPagesField.value;
     addBookToLibrary(title, author, numPages);
+    inputForm.setAttribute('style', 'display: none;');
 });
 
 displayLibrary();
