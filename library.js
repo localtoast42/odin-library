@@ -1,7 +1,9 @@
 const myLibrary = [];
 
-function Book(title) {
+function Book(title, author, numPages) {
     title: title;
+    author: author;
+    numPages: numPages;
 }
 
 function addBookToLibrary(book) {
