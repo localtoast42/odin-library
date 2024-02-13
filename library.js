@@ -1,6 +1,7 @@
 const myLibrary = [];
 
 function Book(title, author, numPages) {
+    this.index = 0;
     this.title = title;
     this.author = author;
     this.numPages = numPages;
@@ -8,8 +9,19 @@ function Book(title, author, numPages) {
 
 function addBookToLibrary(title, author, numPages) {
     let book = new Book(title, author, numPages);
+    book.index = bookIndex;
+    bookIndex++;
     myLibrary.push(book);
     displayLibrary();
+}
+
+function removeBookFromLibrary(index) {
+    for (i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].index === index) {
+            myLibrary.splice(i, 1);
+            break;
+        }
+    }
 }
 
 function displayLibrary() {
@@ -17,6 +29,8 @@ function displayLibrary() {
     cards.forEach((card) => {
         cardContainer.removeChild(card);
     });
+
+    
 
     myLibrary.forEach((book) => {
         const card = document.createElement('div');
@@ -29,9 +43,20 @@ function displayLibrary() {
         authorDiv.textContent = 'by ' + book.author;
         numPagesDiv.textContent = 'Page Count: ' + book.numPages;
 
+        const removalButton = document.createElement('button');
+        removalButton.setAttribute('class', 'remove');
+        removalButton.textContent = 'Remove';
+        removalButton.dataset.index = book.index;
+        removalButton.addEventListener('click', (e) => {
+            const bookToRemove = parseInt(e.target.dataset.index);
+            removeBookFromLibrary(bookToRemove);
+            displayLibrary();
+        });
+
         card.appendChild(titleDiv);
         card.appendChild(authorDiv);
         card.appendChild(numPagesDiv);
+        card.appendChild(removalButton);
 
         cardContainer.appendChild(card);
     });
@@ -44,6 +69,7 @@ const titleField = document.querySelector('#title');
 const authorField = document.querySelector('#author');
 const numPagesField = document.querySelector('#num-pages');
 const inputForm = document.querySelector('form');
+let bookIndex = 0;
 
 newBookBtn.addEventListener('click', () => {
     titleField.value = '';
