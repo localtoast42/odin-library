@@ -66,8 +66,8 @@ function displayLibrary() {
         card.appendChild(titleDiv);
         card.appendChild(authorDiv);
         card.appendChild(numPagesDiv);
-        card.appendChild(removalButton);
         card.appendChild(readButton);
+        card.appendChild(removalButton);
 
         cardContainer.appendChild(card);
     });
