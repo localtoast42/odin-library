@@ -5,6 +5,11 @@ function Book(title, author, numPages) {
     this.title = title;
     this.author = author;
     this.numPages = numPages;
+    this.isRead = false;
+}
+
+Book.prototype.markRead = function () {
+    this.isRead = this.isRead ? false : true;
 }
 
 function addBookToLibrary(title, author, numPages) {
@@ -30,8 +35,6 @@ function displayLibrary() {
         cardContainer.removeChild(card);
     });
 
-    
-
     myLibrary.forEach((book) => {
         const card = document.createElement('div');
         card.setAttribute('class', 'card');
@@ -53,10 +56,18 @@ function displayLibrary() {
             displayLibrary();
         });
 
+        const readButton = document.createElement('button');
+        readButton.setAttribute('class', 'read');
+        readButton.textContent = 'Mark Read';
+        readButton.addEventListener('click', (e) => {
+            book.markRead();
+        });
+
         card.appendChild(titleDiv);
         card.appendChild(authorDiv);
         card.appendChild(numPagesDiv);
         card.appendChild(removalButton);
+        card.appendChild(readButton);
 
         cardContainer.appendChild(card);
     });
